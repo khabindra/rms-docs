@@ -73,11 +73,12 @@ A bill may contain multiple orders for the same table session.
 ## Table Management Rules
 
 ### Table Status Flow
-Available → Occupied (first order placed)
-Occupied → Billing (bill requested)
-Billing → Available (bill paid or credited)
-Available → Reserved (reservation made)
-Reserved → Available/Occupied (reservation time arrives)
+
+- **Available** → **Occupied** (first order placed)
+- **Occupied** → **Billing** (bill requested)
+- **Billing** → **Available** (bill paid or credited)
+- **Available** → **Reserved** (reservation made)
+- **Reserved** → **Available**/**Occupied** (reservation time arrives)
 
 
 ### One Active Bill Per Table
