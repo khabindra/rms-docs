@@ -116,12 +116,13 @@ A table can have multiple bills historically, but only **one active (unpaid)** b
 # Recommended Enhancements for Room Feature
 
 ## 1. Add Room/Section Model
-
+```python
 class Room(models.Model):
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     description = models.TextField(blank=True)
     table_layout = models.JSONField(blank=True, null=True)  # optional layout data
+```
 
 
 ## 2. Enhance Table Model
