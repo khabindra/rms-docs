@@ -144,6 +144,7 @@ features = models.ManyToManyField("TableFeature", blank=True)
 ```
 
 ## 3. Add Reservation Model
+```python
 class Reservation(models.Model):
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
     table = models.ForeignKey(Table, on_delete=models.CASCADE)
@@ -157,8 +158,10 @@ class Reservation(models.Model):
         ("completed", "Completed")
     ])
     notes = models.TextField(blank=True)
+```
 
 ## 4. Add Waitlist Model
+```python 
 class WaitlistEntry(models.Model):
     restaurant = models.ForeignKey(Restaurant, on_delete=models.CASCADE)
     customer_name = models.CharField(max_length=255)
@@ -169,8 +172,8 @@ class WaitlistEntry(models.Model):
         ("seated", "Seated"),
         ("cancelled", "Cancelled")
     ])
-    
----
+
+```
 # Next Steps for Implementation
 ## Phase 1
 
