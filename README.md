@@ -112,14 +112,6 @@ A table can have multiple bills historically, but only **one active (unpaid)** b
 
 ---
 
-# Relationship Diagram
-
-Restaurant (1) → (many) Table (1) → (many) Bill (1) → (many) Order
-↑ ↑
-└────────── (many) MenuItem └────────── (many) OrderItem
-
-
----
 
 # Recommended Enhancements for Room Feature
 
@@ -136,15 +128,20 @@ class Room(models.Model):
 
 Add the following fields:
 
+```python
 room = models.ForeignKey(Room, on_delete=models.SET_NULL, null=True, blank=True)
-table_type = models.CharField(max_length=20, choices=[
-    ("booth", "Booth"),
-    ("bar", "Bar"),
-    ("standard", "Standard")
-])
+table_type = models.CharField(
+    max_length=20,
+    choices=[
+        ("booth", "Booth"),
+        ("bar", "Bar"),
+        ("standard", "Standard")
+    ]
+)
 min_party_size = models.IntegerField(default=1)
 max_party_size = models.IntegerField(default=6)
 features = models.ManyToManyField("TableFeature", blank=True)
+```
 
 ## 3. Add Reservation Model
 class Reservation(models.Model):
@@ -172,7 +169,8 @@ class WaitlistEntry(models.Model):
         ("seated", "Seated"),
         ("cancelled", "Cancelled")
     ])
-
+    
+---
 # Next Steps for Implementation
 ## Phase 1
 
